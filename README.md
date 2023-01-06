@@ -1,24 +1,28 @@
 # Homemade Low-Cost High-Cost/Performance maimaiDX Controller $FULL!$ GUIDE
 
 ## Here be added a bulletin board!
-1. 3 people have already succeeded at making 43 inch versions. 5 people have succeeded if you ignore screen size, which means that nobody has failed and the rate of success is 100%!!!!
-2. 更新了可以调整每个分区连线，阈值的版本，非常方便。  
-3. 测得了刷新率，如果使用mpr.baselineData()-mpr.filteredData()读取34个分区，刷新率大约100hz，如果使用touched()来读取，刷新率至少1000hz！！！！  
+1. 3 people have already succeeded at making 43 inch versions. 5 people have succeeded if you disregard screen size, which means that nobody has failed. Heed my words, the rate of success is 100%!!!!
+2. For convenience, the guide has been updated with a version that allows you to adjust the connection of each zone and its threshold value.
+3. The refresh rate has been measured. If you use `mpr.baselineData()-mpr.filteredData()` to read the 34 zones, the refresh rate is approximately 100 Hz. If you use `touched()` to  read them, the refresh rate is at least 1000 Hz!!!!
+4. A new program is being written and will be released within a week. It lets you select two different methods of reading and three refresh rate modes, and lets you add delay to match the original touch panel's high touch latency to prevent everything from being judged as fast (early) in the game.
 
-4. 正在写新版程序，一周内更新，可以选择两种读取方式，三种刷新率模式，可以调整增加延迟以匹配官机面板的高延迟，防止游玩全是fast（early）！！！！
+## Section 0: Agreements
 
-## 第零部分 协议
+### Please don't infringe on the rights of SEGA and WAHLAP
 
-### 对于请勿侵犯SEGA以及WAHLAP权益的声明
+When everyone is showing off their controllers, please don't post things that shouldn't be posted.
+
+_TN:_ I'm not translating the rest. You get the point. Original:
+
 本作仅适用于个人制作游玩，原则上不提倡也不反对制作后发售。若发售或由读者自己的行为造成不当影响和任何纠纷，本教程作者和本教程不负任何责任。请勿侵犯SEGA以及WAHLAP权益。若作者行为或是本教程产生了不良影响，我对我的行为表示抱歉并可修补甚至撤下本教程，希望大家的理解。  
 当大家在展示自己手台效果的时候，不要发布不该发布的东西，让我们一起遵守。
 
-### 对于协力者，贡献者的感谢
+### Thanks to collaborators and contributors
 
-我的触摸代码部分几乎完全是mai2touch的项目搬来的，然后更改修复了一些mpr121配置上的问题，配置部分借鉴了Arduino-Chunithm-Controller的代码。读卡器使用的也是同作者的Arduino-Aime-Reader。在此对mai2touch，Arduino-Chunithm-Controller,Arduino-Aime-Reader和它们的作者表示衷心的感谢，如果没有mai2touch和Arduino-Chunithm-Controller以及对它们下了很多心血的作者，我的控制器将失去它最重要的灵魂。  
-在此感谢[Sucareto](https://github.com/Sucareto)以及他的项目[Arduino-Aime-Reader](https://github.com/Sucareto/Arduino-Aime-Reader)，[Arduino-Chunithm-Controller](https://github.com/Sucareto/Arduino-Chunithm-Controller)和[mai2Touch](https://github.com/Sucareto/Mai2Touch)!
+My touch code is almost completely taken from mai2touch, with modifications to fix some problems configuring the mpr121, borrowed from Arduino-Chunithm-Controller. The card reader is from Arduino-Aime-Reader by the same author. I express sincere thanks to mai2touch, Arduino-Chunithm-Controller, Arduino-Aime-Reader and their authors. Without mai2touch, Arduino-Chunithm-Controller, and their authors, who put a great deal of effort into their projects, my controller would not have a soul.
+Here, I thank [Sucareto](https://github.com/Sucareto) for their projects: [Arduino-Aime-Reader](https://github.com/Sucareto/Arduino-Aime-Reader), [Arduino-Chunithm-Controller](https://github.com/Sucareto/Arduino-Chunithm-Controller), and [mai2Touch](https://github.com/Sucareto/Mai2Touch)!
 
-此版本可以单独调整每一个区块的连线和阈值！内置接线mpr分区来自**春暖花开**的设计！newmap-llvermtn202212271340    
+This version allows you to adjust the wiring and threshold of each zone block individually! The built-in wiring for the mpr zones was designed by **春暖花开**! newmap-llvermtn202212271340    
 
 里面使用一个数组存储了每个区块具体的接线信息和阈值，这样更加方便大家使用自己对于接线方法的设计！建议自制的同志们每个人都下载看一下，比以前的程序接线自由度好很多！
 数值里面是每个区的信息，对于每个区，第一个是这个区连接在哪个mpr上，1-4分别对应0x5a到0x5c，第二个是接在这个mpr的哪个引脚，从0到11可选，第三个是阈值，越大越难触发，越小越容易触发。  
@@ -31,21 +35,20 @@
 
 传承开源精神，我将自用的程序开源，但是仅仅用于我手里的硬件测试成功，不同的走线，制作方法，使用的mpr配置等也不一样，不建议照搬。
 
-### 对于本教程版权的声明
+### Guide copyright notices
 
-**HWDK_OPENSOURCE 开源项目**  
-**本项目为 Helloworld 团队 Dk 提项并研发验证，作为开源项目，上传Github**  
-**商业性：本作品允许合理商业，但作者不支持也不反对，但商业化造成的任何影响和结果，造成任何纠纷与作者无任何关系，有了我的教程，制作会简单一些，但是也很难，不保证所有人都能制作成功**  
-**对本作品商业化的额外要求：基于本方案的作品，在您的改动不大的情况下（添加图形文字丝印/在程序等地添加自己的标识不计算为改动，若对功能做出改变，如在本基础上添加其他游戏兼容读卡器代码使新代码有意义部分可见字符长度远远大于原来程序，或更改电路PCB，增加无线（？）功能，不受本要求约束！），严厉禁止售卖产生大于500元/每个43寸等大台，75元/每个15寸及以下的小台的利润，使用本项目制作售卖者，我有权查你的原料账单，如果不符合我的要求，有权挂你不让你卖，看看谁能那么厚脸皮！！！！**
+**HWDK_OPENSOURCE Open Source Items**  
+**This project was started and verified by Helloworld member Dk, as an open source project, uploaded to GitHub**  
+**Commerical use: This work reasonable commercialization, but the author neither supports nor opposes commercialization. blah blah blah...** _TN: You probably get the point. The author won't support commercial versions or people trying to create commercial versions._
+**Additional requirements for commercialization of this work：If the changes of any derivative works are not significant (adding graphics/text/logos/etc. is not considered a change), if functionality is changed (including but not exclusive to adding code to support card readers from different games, which leads to the visible amount of characters in the code much greater than the original, or modifying the circuit PCB, adding wireless(?) functionality), it is strictly prohibited to profit greater than 500 CNY for each 43 inch controller, or 75 CNY for each 15 inches for miniature controllers. I have the right to check your bill of materials; if you don't follow these terms I have the right to stop you from selling. Let's see who will be shameless!!!!**
+This guide was written by hand by Helloworld_Dk, and the ideas are almost entirely my own.
+I'd be honored to help others with making their ideas, and would appreciate if you would add "本方案的部分灵感来自Dk" ("This project was partially inspired by Dk") when posting about your own project.
 
-本教程是由Helloworld_Dk纯手打写出的，思路也是几乎完全自己想的。  
-如果我能给大家的想法产生帮助，我感到非常荣幸，如果您觉得我的方案对您有帮助，希望可以在您的项目发布时，跟上一句"本方案的部分灵感来自Dk"或类似的话，我将不甚感激
+## Section 1: Overview
 
-## 第一部分 总览
+![Overview](Pictures/zonglan001.png)
 
-![总览](Pictures/zonglan001.png)
-
-本方案是使用导电膜裁切，漆包线引出的触摸部分为核心的低价maimai控制器制作方案。由于被~~逼到无奈~~很多也像制作maimai手台的玩家支持，而写了这样的一个教程。
+This project is a low-cost maimai controller that uses cut conductive film with enameled wire leading out of the film at its core. Due to ~~being forced~~ support from many other maimai players that want to make their own controllers, I wrote this guide.
 
 本作品旨在弄个便宜好用的方案，让大多数人都可以轻松把这个东西做出来，同时不要效果差到没法玩。
 
