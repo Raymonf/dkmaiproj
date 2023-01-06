@@ -1,7 +1,7 @@
-# 自制省钱高性价比maimaiDX控制器$全!$解
+# Homemade Low-Cost High-Cost/Performance maimaiDX Controller $FULL!$ GUIDE
 
-## 在此添置一个公告栏！
-1. 43寸版本已经有至少3人成功，总成功人数不论尺寸，至少有5人成功，目前没有失败案例，听我话的制作成功率100%！！！  
+## Here be added a bulletin board!
+1. 3 people have already succeeded at making 43 inch versions. 5 people have succeeded if you ignore screen size, which means that nobody has failed and the rate of success is 100%!!!!
 2. 更新了可以调整每个分区连线，阈值的版本，非常方便。  
 3. 测得了刷新率，如果使用mpr.baselineData()-mpr.filteredData()读取34个分区，刷新率大约100hz，如果使用touched()来读取，刷新率至少1000hz！！！！  
 
