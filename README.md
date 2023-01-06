@@ -14,12 +14,14 @@ When everyone is showing off their controllers, please don't post things that sh
 
 _TN:_ I'm not translating the rest. You get the point. Original:
 
-本作仅适用于个人制作游玩，原则上不提倡也不反对制作后发售。若发售或由读者自己的行为造成不当影响和任何纠纷，本教程作者和本教程不负任何责任。请勿侵犯SEGA以及WAHLAP权益。若作者行为或是本教程产生了不良影响，我对我的行为表示抱歉并可修补甚至撤下本教程，希望大家的理解。  
+本作仅适用于个人制作游玩，原则上不提倡也不反对制作后发售。若发售或由读者自己的行为造成不当影响和任何纠纷，本教程作者和本教程不负任何责任。请勿侵犯SEGA以及WAHLAP权益。若作者行为或是本教程产生了不良影响，我对我的行为表示抱歉并可修补甚至撤下本教程，希望大家的理解。
+
 当大家在展示自己手台效果的时候，不要发布不该发布的东西，让我们一起遵守。
 
 ### Thanks to collaborators and contributors
 
 My touch code is almost completely taken from mai2touch, with modifications to fix some problems configuring the mpr121, borrowed from Arduino-Chunithm-Controller. The card reader is from Arduino-Aime-Reader by the same author. I express sincere thanks to mai2touch, Arduino-Chunithm-Controller, Arduino-Aime-Reader and their authors. Without mai2touch, Arduino-Chunithm-Controller, and their authors, who put a great deal of effort into their projects, my controller would not have a soul.
+
 Here, I thank [Sucareto](https://github.com/Sucareto) for their projects: [Arduino-Aime-Reader](https://github.com/Sucareto/Arduino-Aime-Reader), [Arduino-Chunithm-Controller](https://github.com/Sucareto/Arduino-Chunithm-Controller), and [mai2Touch](https://github.com/Sucareto/Mai2Touch)!
 
 This version allows you to adjust the wiring and threshold of each zone block individually! The built-in wiring for the mpr zones was designed by **春暖花开**! newmap-llvermtn202212271340    
@@ -38,10 +40,15 @@ This version allows you to adjust the wiring and threshold of each zone block in
 ### Guide copyright notices
 
 **HWDK_OPENSOURCE Open Source Items**  
+
 **This project was started and verified by Helloworld member Dk, as an open source project, uploaded to GitHub**  
+
 **Commerical use: This work reasonable commercialization, but the author neither supports nor opposes commercialization. blah blah blah...** _TN: You probably get the point. The author won't support commercial versions or people trying to create commercial versions._
+
 **Additional requirements for commercialization of this work：If the changes of any derivative works are not significant (adding graphics/text/logos/etc. is not considered a change), if functionality is changed (including but not exclusive to adding code to support card readers from different games, which leads to the visible amount of characters in the code much greater than the original, or modifying the circuit PCB, adding wireless(?) functionality), it is strictly prohibited to profit greater than 500 CNY for each 43 inch controller, or 75 CNY for each 15 inches for miniature controllers. I have the right to check your bill of materials; if you don't follow these terms I have the right to stop you from selling. Let's see who will be shameless!!!!**
+
 This guide was written by hand by Helloworld_Dk, and the ideas are almost entirely my own.
+
 I'd be honored to help others with making their ideas, and would appreciate if you would add "本方案的部分灵感来自Dk" ("This project was partially inspired by Dk") when posting about your own project.
 
 ## Section 1: Overview
@@ -50,11 +57,13 @@ I'd be honored to help others with making their ideas, and would appreciate if y
 
 This project is a low-cost maimai controller that uses cut conductive film with enameled wire leading out of the film at its core. Due to ~~being forced~~ support from many other maimai players that want to make their own controllers, I wrote this guide.
 
-本作品旨在弄个便宜好用的方案，让大多数人都可以轻松把这个东西做出来，同时不要效果差到没法玩。
+The purpose of this work is to make a cheap and good solution that many people can make, while not being totally unplayable.
 
-**43寸版本已经有至少三台制作成功**
-**根据核算的价格，约三千多元可以实现没有按键的整台43寸控制器，约五千不到可以实现带有按键和灯光的整台43寸控制器**  
-**根据核算的价格，约两百多元可以实现没有按键的整台15寸以下控制器，约四百不到可以实现带有按键和灯光的整台15寸以下控制器**
+**At least 3 people have succeeded in creating 43 inch versions.**
+
+**Calculations show that it's possible to make a 43 inch controller without buttons and lights with about 3000 CNY, and a little less than 5000 CNY to make a 43 inch controller with buttons and lights.**
+
+**Calculations show that it's possible to make a 15 inch or smaller controller without buttons and lights with about 200 CNY, and a little less than 400 CNY to make a 15 inch or smaller controller with buttons and lights.**
 
 为想要做一个maimai手台，而又对高昂的价格和空缺的思路望而却步的观众们提供一个全新的高性价比的思路。
 
@@ -62,14 +71,13 @@ This project is a low-cost maimai controller that uses cut conductive film with 
 
 所以没有想过类似定制玻璃什么的，当然，使用定制的材料一定会让效果更好，甚至还原出街机的水准。
 
-被骂哭了，视频删掉了。  
-我错了，请不要再骂我或者嘲讽我了。  
-以下两个链接无效：
+I cried after being scolded, and deleted the video. I was wrong, please don't mock or scold me anymore. These following links are no longer valid:
 
 ```
-### [方案效果展示](https://www.bilibili.com/video/BV1pe4y1m7pr/)
-### [使用32u4的延迟更新后的展示](https://www.bilibili.com/video/BV1PW4y1E7io/)
+### [Project Demonstration](https://www.bilibili.com/video/BV1pe4y1m7pr/)
+### [Demonstration with 32u4's Delay Update](https://www.bilibili.com/video/BV1PW4y1E7io/)
 ```
+
 <h2>todo: 另一个项目，顺利的话，大的要来了|来了，是读卡器那个项目，请进入我的主页打开读卡器项目！</h2>
 
 ## 常见问题
@@ -104,21 +112,22 @@ stat: 延迟的问题已经被消除，写一个常见问题解答（重要！�
 **43寸版本 73行 cap.writeRegister(MPR121_ECR, B10000000 + 12);//MprRun 改成B01000000 + 12可能有优化的效果！感谢yywooc的优化**  
 目前14，15，43寸都已被测试成功可用
 
-## 第二部分 目录
-- 第零部分 协议
+## Section 2: Table of Contents
+- Section 0: Agreements
     - 对于请勿侵犯SEGA以及WAHLAP权益的声明
     - 对于协力者，贡献者的感谢
     - 对于本教程版权的声明
-- 第一部分 总览
-    - 介绍
-    - 方案效果展示
-    - todo和stat
-- 第二部分 目录
-    - 目录
-- 第三部分 触屏制作指导
-- 第四部分 读卡器个人思路分享
-- 第五部分 已删除
-- 第六部分 按键和灯光（未完成）
+- Section 1: Overview
+    - Introduction
+    - Project Demonstration
+    - todo and stat
+- Section 2: Table of Contents
+    - Table of Contents
+- Section 3: Touch Screen Production
+- Section 4: Personal Thoughts on the Card Reader
+- Section 5: Deleted
+- Section 6: Buttons and Lights（Incomplete）
+
 ## 第三部分 触屏制作指导
 **这位更是重量级**
 
@@ -154,18 +163,23 @@ stat: 延迟的问题已经被消除，写一个常见问题解答（重要！�
 **制作过程详解**  
 这部分在专栏讲的很详细，特别是图片详细。  
 统共有以下步骤：  
-### 1\. 打印对照纸
+
+### 1\. Print Reference Sheet
 说的玄乎，其实就是用一张A4纸或类似的纸，将触摸区块图片打印下来。尺寸要与你目标屏幕显示的大小完全对应。建议打印至少两张。
 
 ![打印对照纸](Pictures/dydzz001.png)
 
-### 2\. 裁切
-把a4纸跟买到的触摸膜贴在一起固定好，然后根据a4纸，裁下每一片触摸区块  
-注意一定要固定好哦，不然剪着剪着位移了剪除奇形怪状的区块可就难办了！
-![裁切](Pictures/caiqie001.png)
-![裁切](Pictures/caiqie002.png)
-![裁切](Pictures/caiqie003.png)
-## 3\.粘贴
+### 2\. Cutting
+
+Fix your A4 sheet of paper and your purchased touch film together, and then cut out each touch zone according to the A4 sheet of paper.
+
+Make sure you've fixed the film well! If you cut a weird shape out, you're screwed!
+
+![Cutting](Pictures/caiqie001.png)
+![Cutting](Pictures/caiqie002.png)
+![Cutting](Pictures/caiqie003.png)
+
+## 3\. Pasting
 
 首先你不是打印了两张A4纸吗，一张被剪了，另一张好好的，请规划好位置之后，把A4纸打印面朝向亚克力板或玻璃板粘贴，在另一面应该可以透过亚克力板或者玻璃板，看到另一面清晰的打印的区块。用于之后粘贴位置的对应。
 ![粘贴对应](Pictures/zhantieduiying001.png)
@@ -181,11 +195,11 @@ stat: 延迟的问题已经被消除，写一个常见问题解答（重要！�
 
 在**粘贴**这一步，我们需要完成的是
 
-0. 亚克力或玻璃板
-1. （如果是带胶的自带，没带胶的会让你痛苦到怀疑人生）一层透明胶
-2. 聚酯离型膜
-3. ito导电涂层
-4. 一层保护膜
+0. Acrylic or a glass panel
+1. （如果是带胶的自带，没带胶的会让你痛苦到怀疑人生）A layer of transparent glue
+2. Polyester Release Film
+3. ito Conductive Film
+4. A layer of protective film
 
 假设没有买带胶的膜，就自行点胶（透明的，支持粘贴塑料的，不会腐蚀塑料的，固化不回缩的，粘贴可以调整的）固定每片触摸块到屏幕上。  
 在写这篇教程的时候，我自己搞的胶腐蚀了我的塑料板，导致A5区域透明性下降...**距今已过去十分钟，警钟敲烂**，所以千万别贪便宜买不带胶的！  
@@ -323,17 +337,19 @@ QA3: 怎么感觉我的触摸没问题，但是程序里面好像跟无响应一
 
 
 
-### 屏幕1p设置
+### 1P Screen Setup
 
-我的展示中的1p是因为我有俩屏幕，估计诱骗也非常的可行。  
-在显示设置里面设置maimai屏幕为主屏，然后摆放在不作为maimai屏幕的那块的右边，上对齐，就可以了。  
-需要启动命令全屏0，然后-popupwindow    
-不知道我的方法是否适用于您的屏幕
-![显示设置](Pictures/xianshi001.png)
+The 1P on my display is because I have two screens. You could probably also fake one.
 
+Set the maimai display screen as the main screen in Display Settings _(TL: in Windows)_, and then place the non-maimai screen to the right, aligned to the top. That's it.
 
-关于怎么开1p+2p，暂时没有需求，就不搞了（
-应该不难
+You'll need to start with the command to use fullscreen 0，and then -popupwindow    
+
+I don't know if my method works for your screen or not:
+
+![Display Settings](Pictures/xianshi001.png)
+
+I don't need 1P+2P, so I'm not working on that. It's probably not that hard.
 
 ## 第四部分 读卡器个人思路分享
 
